@@ -51,7 +51,17 @@ function draw() {
     fill(255);
     textSize(48);
     textAlign(CENTER);
-    text("COLUMN #" + winner + " WINS!", width/2, height/2);
+    switch(winner) {
+      case 0:
+        text("YES!", width/2, height/2);
+        break;
+      case 1:
+        text("NO!", width/2, height/2);
+        break;
+      case 2:
+        text("HELL NO!", width/2, height/2);
+        break;
+    }
   }
 }
 
