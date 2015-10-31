@@ -4,21 +4,25 @@ var rowPrevious = [];
 var easing;
 var playing = true;
 var current_values;
-var finishLineY = 30;
+var finishLineY = 100;
 var winner;
+var question;
 var players = ["Yes", "No", "Hell No!"];
+var bebas;
 
+function preload() {
+  bebas = loadFont("fonts/BebasNeue.otf");
+}
 function setup() {
-  createCanvas(windowWidth, windowHeight); 
+  createCanvas(windowWidth, windowHeight);
+  textFont(bebas); 
   col[0] = 100;
   col[1] = windowWidth/2;
   col[2] = windowWidth - 100;
-  row[0] = windowHeight;
-  row[1] = windowHeight;
-  row[2] = windowHeight;
-  rowPrevious[0] = windowHeight;
-  rowPrevious[1] = windowHeight;
-  rowPrevious[2] = windowHeight;
+  for (var i = 0; i < col.length; i++) {
+    row[i] = windowHeight - 100;
+    rowPrevious[i] = windowHeight - 100;
+  }
 
   easing = .025;
   setInterval(getValues, 1000);
@@ -26,9 +30,17 @@ function setup() {
 
 function draw() {
   background(0);
+  textAlign(CENTER, CENTER);
+  if (question) {
+    textSize(50);
+    fill(255);
+    text(question, width/2, 50);
+  }
+
+  textSize(20);
 
   if (playing) {
-    stroke(255);
+    stroke(100);
     for (var x = 0; x < windowWidth; x+=5) {
       line(x, finishLineY, x + 2, finishLineY);
     }
@@ -44,10 +56,13 @@ function draw() {
         playing = false;
         winner = whoWon();
       }
-      textAlign(CENTER);
-      textSize(24);
+      fill(200);
+      noStroke();
       text(players[i], col[i], row[i]);
-//      ellipse(col[i], row[i], 30, 30);
+      noFill();
+      strokeWeight(5);
+      stroke(255);
+      ellipse(col[i], row[i]+50, 30, 30);
 
     }
   }
@@ -88,12 +103,13 @@ function getValues() {
 
 function gotValues(data) {
   current_values = data;
+  question = data.question;
   for (var i = 0; i < data.counts.length; i++) {
     if (row[i] >= rowPrevious[i]) {
       rowPrevious[i] = windowHeight - (data.counts[i] * 10);
     }
 
-    if (data.counts[i] == 0) {
+    if (data.counts[i] < 0) {
       row[i] = windowHeight;
       rowPrevious[i] = windowHeight;
     }
