@@ -6,6 +6,7 @@ var playing = true;
 var current_values;
 var finishLineY = 30;
 var winner;
+var players = ["Yes", "No", "Hell No!"];
 
 function setup() {
   createCanvas(windowWidth, windowHeight); 
@@ -43,7 +44,10 @@ function draw() {
         playing = false;
         winner = whoWon();
       }
-      ellipse(col[i], row[i], 30, 30);
+      textAlign(CENTER);
+      textSize(24);
+      text(players[i], col[i], row[i]);
+//      ellipse(col[i], row[i], 30, 30);
 
     }
   }
@@ -66,9 +70,9 @@ function draw() {
 }
 
 function whoWon() {
-  var best = -9999;
+  var best = 9999;
   for (var i = 0; i < row.length; i++) {
-    if(row[i] > best) {
+    if(row[i] < best) {
       best = row[i];
       winnerIndex = i;
     }

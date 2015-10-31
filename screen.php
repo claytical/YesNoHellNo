@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <script>
-  var game_id = <?php echo $game_id;?>
+  var game_id = <?php echo $game_id;?>;
   </script>
   <script language="javascript" type="text/javascript" src="js/p5.min.js"></script>
   <script language="javascript" type="text/javascript" src="js/p5.dom.js"></script>
