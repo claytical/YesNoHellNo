@@ -65,10 +65,17 @@ function startGame(answer) {
 
 function gotValues(data) {
   console.log(data);
+  select('#yes').html(data.counts[0]);
+  select('#no').html(data.counts[1]);
+  select('#hellno').html(data.counts[2]);
 }
 
 function sendAnswer() {
+  a.addClass('animated tada');
   console.log("sending answer:" + game_id + "," + answer_id);
 
   loadJSON('http://api.dataplayed.com/ynhn/vote.php?g='+game_id+'&a='+answer_id, gotValues);
+  window.setTimeout( function(){
+                  a.removeClass('animated tada');
+              }, 1000);    
 }
