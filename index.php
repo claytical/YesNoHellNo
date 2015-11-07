@@ -47,6 +47,16 @@ else {
 #defaultCanvas0 {
   display: none;
 }
+
+.scorebox {
+  border: 1px solid black;
+}
+.score {
+  font-style: italic;
+}
+.team {
+  font-weight: bold;
+}
 </style>
   <div id="choose">
   <?php if($game_id == -1):?>
@@ -75,7 +85,7 @@ else {
 
     <div id="counts" class="text-center">
       <div class="row">
-        <div class="small-4 columns">
+        <div class="small-4 columns scorebox">
           <div class="score" id="yes">
           -
           </div>
@@ -83,14 +93,14 @@ else {
             Yes
           </div>
         </div>
-        <div class="small-4 columns">
+        <div class="small-4 columns scorebox">
           <div class="score" id="no">
           -
           </div>
           <div class="team">
             No</div>
           </div>
-        <div class="small-4 columns">
+        <div class="small-4 columns scorebox">
           <div class="score" id="hellno">
           -
           </div>
