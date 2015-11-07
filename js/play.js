@@ -18,7 +18,7 @@ function setup() {
   noButton.parent('choices');
   noButton.class('button expand');
   noButton.mousePressed(sayNo);
-  NoButton.style('height: 30%');
+  noButton.style('height: 30%');
 
   hellNoButton.parent('choices');
   hellNoButton.class('button expand');
