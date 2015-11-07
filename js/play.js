@@ -13,14 +13,18 @@ function setup() {
   yesButton.parent('choices');
   yesButton.class('button expand');
   yesButton.mousePressed(sayYes);
+  yesButton.style('height: 30%');
 
   noButton.parent('choices');
   noButton.class('button expand');
   noButton.mousePressed(sayNo);
+  NoButton.style('height: 30%');
 
   hellNoButton.parent('choices');
   hellNoButton.class('button expand');
   hellNoButton.mousePressed(sayHellNo);
+  noButton.style('height: 30%');
+
 }
 
 function draw() {
@@ -29,7 +33,7 @@ function draw() {
 
 function getValues() {
   if (playing) {
-    loadJSON('http://api.dataplayed.com/ynhn/counts.php?id=' + game_id, gotValues);
+    loadJSON('counts.php?id=' + game_id, gotValues);
   }
 }
 
@@ -56,6 +60,7 @@ function startGame(answer) {
   a.parent('play');
   var p = select('#play');
   p.show();
+  a.style('height: 90%');
   a.mousePressed(sendAnswer);
 
   var game_options = select('#game');
@@ -74,7 +79,7 @@ function sendAnswer() {
   a.addClass('animated tada');
   console.log("sending answer:" + game_id + "," + answer_id);
 
-  loadJSON('http://api.dataplayed.com/ynhn/vote.php?g='+game_id+'&a='+answer_id, gotValues);
+  loadJSON('vote.php?g='+game_id+'&a='+answer_id, gotValues);
   window.setTimeout( function(){
                   a.removeClass('animated tada');
               }, 1000);    

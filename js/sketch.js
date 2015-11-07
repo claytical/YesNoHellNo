@@ -97,7 +97,7 @@ function whoWon() {
 
 function getValues() {
   if (playing) {
-    loadJSON('http://api.dataplayed.com/ynhn/counts.php?id=' + game_id, gotValues);
+    loadJSON('counts.php?id=' + game_id, gotValues);
   }
 }
 
@@ -115,7 +115,5 @@ function gotValues(data) {
     }
   }
 }
-function mousePressed() {
-  playing = !playing;
-}
+
 

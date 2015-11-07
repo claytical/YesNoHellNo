@@ -51,7 +51,7 @@ else {
       <div class="row">
         <div class="small-4 columns">
           <div class="score" id="yes">
-          0
+          -
           </div>
           <div class="team">
             Yes
@@ -59,14 +59,14 @@ else {
         </div>
         <div class="small-4 columns">
           <div class="score" id="no">
-          0
+          -
           </div>
           <div class="team">
             No</div>
           </div>
         <div class="small-4 columns">
           <div class="score" id="hellno">
-          0
+          -
           </div>
           <div class="team">          
             Hell No

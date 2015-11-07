@@ -12,7 +12,7 @@ if ($_POST['question']) {
                                             'question' => $question,
                                         ]
                                 );
-    header('Location: /ynhn/screen.php?id='.$game_id); 
+    header('Location: screen.php?id='.$game_id); 
 
 }
 else {
