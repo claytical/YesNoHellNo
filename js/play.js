@@ -3,27 +3,29 @@ var noButton;
 var hellNoButton;
 var a;
 var answer_id = 0;
-var game_id = 0;
 
 function setup() {
   yesButton = createA("#", "Yes!");
+
   noButton = createA("#", "No!");
-  hellNoButton = createA("#", "HELL NO!");
 
-  yesButton.parent('choices');
-  yesButton.class('button expand');
+  hellNoButton = createA("#", "HECK NO!");
+ 
+
+  yesButton.parent('yesPseudo');
+  yesButton.class('button expand bigblock');
   yesButton.mousePressed(sayYes);
-  yesButton.style('height: 30%');
+//  yesButton.style('height: 30%');
 
-  noButton.parent('choices');
-  noButton.class('button expand');
+  noButton.parent('noPseudo');
+  noButton.class('button expand bigblock');
   noButton.mousePressed(sayNo);
-  noButton.style('height: 30%');
+//  noButton.style('height: 30%');
 
-  hellNoButton.parent('choices');
-  hellNoButton.class('button expand');
+  hellNoButton.parent('hellNoPseudo');
+  hellNoButton.class('button expand bigblock');
   hellNoButton.mousePressed(sayHellNo);
-  hellNoButton.style('height: 30%');
+//  hellNoButton.style('height: 30%');
 
 }
 

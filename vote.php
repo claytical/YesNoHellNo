@@ -21,18 +21,24 @@ $database->insert('votes', [
     ]
 );
 
+
 $yes = $database->count('votes', [
-        'answer_id' => '1'
-        ]);
+                                "AND" => ["answer_id" => 1,
+                                          "game_id" => $game
+                                        ]
+                                ]);
 
 $no = $database->count('votes', [
-        'answer_id' => '2'
-        ]);
+                                "AND" => ["answer_id" => 2,
+                                          "game_id" => $game
+                                        ]
+                                ]);
 
 $hellno = $database->count('votes', [
-        'answer_id' => '3'
-        ]);
-
+                                "AND" => ["answer_id" => 3,
+                                          "game_id" => $game
+                                        ]
+                                ]);
 $return_array = array();
 
 $return_array['counts'] = [$yes, $no, $hellno];

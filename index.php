@@ -23,11 +23,31 @@ else {
   <!-- this line removes any default padding and style. you might only need one of these values set. -->
   <link rel="stylesheet" href="css/foundation.min.css" />
   <link rel="stylesheet" href="css/animate.css" />
-
+  <script>
+  var game_id = <?php echo $game_id;?>;
+  </script>
 </head>
 
 <body>
+<style>
+.blockbutton:before {
+  content: '';
+  display: inline-block;
+  height: 30%;
+  vertical-align: middle;
+  margin-right: -0.25em; /* Adjusts for spacing */
+}
 
+.bigblock {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  height: 30%;
+}
+#defaultCanvas0 {
+  display: none;
+}
+</style>
   <div id="choose">
   <?php if($game_id == -1):?>
     <select name="game" id="game">
@@ -42,6 +62,12 @@ else {
     </select>
   <?php endif;?>
     <div id="choices">
+      <div id="yesPseudo" class="blockbutton"/></div>
+
+      <div id="noPseudo" class="blockbutton"/></div>
+
+      <div id="hellNoPseudo" class="blockbutton"/></div>
+
     </div>
   </div>
 
