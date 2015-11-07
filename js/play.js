@@ -23,7 +23,7 @@ function setup() {
   hellNoButton.parent('choices');
   hellNoButton.class('button expand');
   hellNoButton.mousePressed(sayHellNo);
-  noButton.style('height: 30%');
+  hellNoButton.style('height: 30%');
 
 }
 
